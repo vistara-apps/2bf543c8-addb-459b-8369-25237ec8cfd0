@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Professional Finance Theme - Wall Street meets Crypto */
+  --color-bg: 15 23 42; /* Dark navy slate-900 */
+  --color-fg: 248 250 252; /* Light text slate-50 */
+  --color-accent: 255 215 0; /* Gold accent */
+  --color-primary: 59 130 246; /* Professional blue */
+  --color-surface: 30 41 59; /* Card surface slate-800 */
+  --color-muted: 148 163 184; /* Muted text slate-400 */
+  --color-success: 34 197 94; /* Success green */
+  --color-warning: 251 191 36; /* Warning amber */
+  --color-danger: 239 68 68; /* Danger red */
+}
+
+[data-theme="celo"] {
+  --color-bg: 0 0 0;
+  --color-fg: 255 255 255;
+  --color-accent: 251 204 92;
+  --color-primary: 251 204 92;
+  --color-surface: 23 23 23;
+  --color-muted: 115 115 115;
+  --color-success: 34 197 94;
+  --color-warning: 251 191 36;
+  --color-danger: 239 68 68;
+}
+
+[data-theme="solana"] {
+  --color-bg: 30 16 50;
+  --color-fg: 255 255 255;
+  --color-accent: 220 38 127;
+  --color-primary: 147 51 234;
+  --color-surface: 45 25 65;
+  --color-muted: 156 163 175;
+  --color-success: 34 197 94;
+  --color-warning: 251 191 36;
+  --color-danger: 239 68 68;
+}
+
+[data-theme="base"] {
+  --color-bg: 15 23 42;
+  --color-fg: 248 250 252;
+  --color-accent: 0 82 255;
+  --color-primary: 0 82 255;
+  --color-surface: 30 41 59;
+  --color-muted: 148 163 184;
+  --color-success: 34 197 94;
+  --color-warning: 251 191 36;
+  --color-danger: 239 68 68;
+}
+
+[data-theme="coinbase"] {
+  --color-bg: 13 17 28;
+  --color-fg: 248 250 252;
+  --color-accent: 0 82 255;
+  --color-primary: 0 82 255;
+  --color-surface: 25 30 45;
+  --color-muted: 148 163 184;
+  --color-success: 34 197 94;
+  --color-warning: 251 191 36;
+  --color-danger: 239 68 68;
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface/80 backdrop-blur-sm border border-white/10 rounded-lg;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent to-primary text-bg px-6 py-3 rounded-lg font-medium hover:from-accent/90 hover:to-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-surface border border-accent/20 text-fg px-6 py-3 rounded-lg font-medium hover:bg-surface/80 hover:border-accent/40 transition-all duration-200;
+  }
+
+  .metric-card {
+    @apply glass-card p-6 hover:bg-surface/90 transition-all duration-200;
+  }
+
+  .status-indicator {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .status-good {
+    @apply status-indicator bg-success/20 text-success border border-success/30;
+  }
+
+  .status-warning {
+    @apply status-indicator bg-warning/20 text-warning border border-warning/30;
+  }
+
+  .status-danger {
+    @apply status-indicator bg-danger/20 text-danger border border-danger/30;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-surface border border-white/10 rounded-lg text-fg placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all duration-200;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-3 bg-surface border border-white/10 rounded-lg text-fg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all duration-200 appearance-none;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    background: linear-gradient(rgb(var(--color-surface)), rgb(var(--color-surface))) padding-box,
+                linear-gradient(135deg, rgb(var(--color-accent)), rgb(var(--color-primary))) border-box;
+    border: 1px solid transparent;
+  }
+}
